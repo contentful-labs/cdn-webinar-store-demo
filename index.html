@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+<!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<title>Contentful Shop</title>
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="css/style.css">
+ 
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body class="boxed">
+<div id="wrapper">
+
+
+<!-- Top Bar
+================================================== -->
+<div id="top-bar">
+	<div class="container">
+
+		<!-- Top Bar Menu -->
+		<div class="ten columns">
+			<ul class="top-bar-menu">
+				<li><i class="fa fa-envelope"></i> <a href="#">team@contentful.com</a></li>
+				<li>
+					<div class="top-bar-dropdown">
+						<span>English</span>
+						<ul class="options">
+							<li><div class="arrow"></div></li>
+							<li><a href="#">English</a></li>
+							<li><a href="#">Deutsch</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+<div class="clearfix"></div>
+
+<!-- Titlebar -->
+<section class="parallax-titlebar fullwidth-element"  data-background="#000" data-opacity="0.45" data-height="160">
+
+	<img src="images/parallax.jpg" alt="" />
+	<div class="parallax-overlay"></div>
+
+
+	<div class="parallax-content">
+		<h2>Contentful Shop <span>Contentedness in a box</span></h2>
+
+		<nav id="breadcrumbs">
+			<ul>
+				<li>Home</li>
+				<li>Shop</li>
+				<li>Products</li>
+			</ul>
+		</nav>
+	</div>
+
+</section>
+
+
+<div id="page" class="container">
+</div>
+
+<div class="margin-top-15"></div>
+
+
+<!-- Footer
+================================================== -->
+<div id="footer">
+
+	<!-- Container -->
+	<div class="container">
+
+		<div class="six columns">
+			<img src="images/logo-footer.png" alt="" class="margin-top-10"/>
+      <p class="margin-top-15">
+      This demo site created using the fantastic
+        <a href='http://themeforest.net/item/trizzy-multipurpose-ecommerce-html-template/7950329'>Trizzy</a> template by <a href="http://vasterad.com">Vasterad</a>.</p>
+		</div>
+
+		<div class="four columns">
+
+			<!-- Headline -->
+			<h3 class="headline footer">Customer Service</h3>
+			<span class="line"></span>
+			<div class="clearfix"></div>
+
+			<ul class="footer-links">
+				<li><a href="#">Order Status</a></li>
+				<li><a href="#">Payment Methods</a></li>
+				<li><a href="#">Delivery & Returns</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+				<li><a href="#">Terms & Conditions</a></li>
+			</ul>
+
+		</div>
+
+		<div class="four columns">
+
+			<!-- Headline -->
+			<h3 class="headline footer">My Account</h3>
+			<span class="line"></span>
+			<div class="clearfix"></div>
+
+			<ul class="footer-links">
+				<li><a href="#">My Account</a></li>
+				<li><a href="#">Order History</a></li>
+				<li><a href="#">Wish List</a></li>
+			</ul>
+
+		</div>
+
+	</div>
+	<!-- Container / End -->
+
+</div>
+<!-- Footer / End -->
+
+<!-- Footer Bottom / Start -->
+<div id="footer-bottom">
+
+	<!-- Container -->
+	<div class="container">
+
+		<div class="eight columns">© Copyright 2014 by <a href="#">Contentful</a>. All Rights Reserved.</div>
+		<div class="eight columns">
+			<ul class="payment-icons">
+				<li><img src="images/visa.png" alt="" /></li>
+				<li><img src="images/mastercard.png" alt="" /></li>
+				<li><img src="images/skrill.png" alt="" /></li>
+				<li><img src="images/moneybookers.png" alt="" /></li>
+				<li><img src="images/paypal.png" alt="" /></li>
+			</ul>
+		</div>
+
+	</div>
+	<!-- Container / End -->
+
+</div>
+<!-- Footer Bottom / End -->
+
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+</div>
+
+<!-- Templates -->
+<script id="CategoryPage" type="text/x-handlebars-template">
+
+  <!-- Sidebar -->
+	<div class="four columns">
+
+		<!-- Categories -->
+		<div class="widget margin-top-0">
+			<h3 class="headline">Categories</h3><span class="line"></span><div class="clearfix"></div>
+
+			<ul id="categories">
+				<li><a href="#">Accessories <span>(8)</span></a></li>
+				<li><a href="#">Jewelry <span>(12)</span></a></li>
+				<li><a href="#">Gifts <span>(3)</span></a></li>
+				<li><a href="#">Men's Wear <span>(14)</span></a></li>
+				<li><a href="#">Women's Wear <span>(20)</span></a></li>
+				<li><a href="#">Miscellaneous <span>(3)</span></a></li>
+			</ul>
+			<div class="clearfix"></div>
+
+		</div>
+
+
+	 	<!-- Widget -->
+	 	<div class="widget">
+	 		<h3 class="headline">Filter By Price</h3><span class="line"></span><div class="clearfix"></div>
+
+			<div id="price-range">
+				<div class="padding-range"><div id="slider-range"></div></div>
+				<label for="amount">Price:</label>
+				<input type="text" id="amount"/>
+				<a href="#" class="button color">Filter</a>
+			</div>
+			<div class="clearfix"></div>
+	 	</div>
+
+	</div>
+
+
+  <!-- Content -->
+	<div class="twelve columns margin-bottom-30">
+		<!-- Search -->
+		<nav class="top-search">
+			<form action="#" method="get">
+				<button><i class="fa fa-search"></i></button>
+				<input class="search-field" type="text" placeholder="Search" value=""/>
+			</form>
+		</nav>
+	</div>
+
+	<!-- Products -->
+	<div class="twelve columns products">
+
+		<!-- Product #1 -->
+		<div class="four shop columns">
+			<figure class="product">
+				<div class="mediaholder">
+					<a href="#/product">
+						<img alt="" src="images/shop_item_01.jpg"/>
+						<div class="cover">
+							<img alt="" src="images/shop_item_01_hover.jpg"/>
+						</div>
+					</a>
+					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+
+				<a href="#/product">
+					<section>
+						<span class="product-category">Skirts</span>
+						<h5>Brown Mini Skirt</h5>
+						<span class="product-price">$79.00</span>
+					</section>
+				</a>
+			</figure>
+		</div>
+
+
+		<!-- Product #2 -->
+		<div class="four shop columns">
+			<figure class="product">
+				<div class="mediaholder">
+					<a href="#/product">
+						<img alt="" src="images/shop_item_01.jpg"/>
+						<div class="cover">
+							<img alt="" src="images/shop_item_01_hover.jpg"/>
+						</div>
+					</a>
+					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+
+				<a href="#/product">
+					<section>
+						<span class="product-category">Shoes</span>
+						<h5>Glory High Shoes </h5>
+						<span class="product-price">$99.00</span>
+					</section>
+				</a>
+			</figure>
+		</div>
+
+
+		<!-- Product #3 -->
+		<div class="four shop columns">
+			<figure class="product">
+				<div class="product-discount">SALE</div>
+				<div class="mediaholder">
+					<a href="#/product">
+						<img alt="" src="images/shop_item_01.jpg"/>
+						<div class="cover">
+							<img alt="" src="images/shop_item_01_hover.jpg"/>
+						</div>
+					</a>
+					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+
+				<a href="#/product">
+					<section>
+						<span class="product-category">Suits</span>
+						<h5>Wool Two-Piece Suit</h5>
+						<span class="product-price-discount">$499.00<i>$399.00</i></span>
+					</section>
+				</a>
+			</figure>
+		</div>
+
+
+		<!-- Product #4 -->
+		<div class="four shop columns">
+			<figure class="product">
+				<div class="mediaholder">
+					<a href="#/product">
+						<img alt="" src="images/shop_item_01.jpg"/>
+						<div class="cover">
+							<img alt="" src="images/shop_item_01_hover.jpg"/>
+						</div>
+					</a>
+					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+
+				<a href="#/product">
+					<section>
+						<span class="product-category">Shirts</span>
+						<h5>Vintage Stripe Jumper</h5>
+						<span class="product-price">$49.00</span>
+					</section>
+				</a>
+			</figure>
+		</div>
+
+
+		<!-- Product #5 -->
+		<div class="four shop columns">
+			<figure class="product">
+				<div class="mediaholder">
+					<a href="#/product">
+						<img alt="" src="images/shop_item_01.jpg"/>
+						<div class="cover">
+							<img alt="" src="images/shop_item_01_hover.jpg"/>
+						</div>
+					</a>
+					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+
+				<a href="#/product">
+					<section>
+						<span class="product-category">Accessories</span>
+						<h5>Vintage Sunglasses</h5>
+						<span class="product-price">$29.00</span>
+					</section>
+				</a>
+			</figure>
+		</div>
+
+
+		<!-- Product #6 -->
+		<div class="four shop columns">
+			<figure class="product">
+				<div class="mediaholder">
+					<a href="#/product">
+						<img alt="" src="images/shop_item_01.jpg"/>
+						<div class="cover">
+							<img alt="" src="images/shop_item_01_hover.jpg"/>
+						</div>
+					</a>
+					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+
+				<a href="#/product">
+					<section>
+						<span class="product-category">Shirts</span>
+						<h5>Solid Blue Polo Shirt</h5>
+						<span class="product-price">$29.00</span>
+					</section>
+				</a>
+			</figure>
+		</div>
+</script>
+
+<script id="ProductPage" type="text/x-handlebars-template">
+  <!-- Slider -->
+	<div class="eight columns" >
+		<div class="slider-padding">
+			<div id="product-slider-vertical" class="royalSlider rsDefault">
+			    <a href="images/product_item_04a-big.jpg" class="mfp-gallery" title="First Title"><img class="rsImg" src="images/product_item_04a.jpg" data-rsTmb="images/product_item_thumb_04a.png" alt="" /></a>
+			    <a href="images/product_item_04b-big.jpg" class="mfp-gallery" title="Second Title"><img class="rsImg" src="images/product_item_04b.jpg" data-rsTmb="images/product_item_thumb_04b.png" alt="" /></a>
+			    <a href="images/product_item_04c-big.jpg" class="mfp-gallery" title="Third Title"><img class="rsImg" src="images/product_item_04c.jpg" data-rsTmb="images/product_item_thumb_04c.png" alt="" /></a>
+			 </div>
+			 <div class="clearfix"></div>
+		</div>
+	</div>
+
+<!-- Description
+	<div class="eight columns">
+		<div class="product-page">
+			
+			<!-- Headline -->
+			<section class="title">
+				<h2>Single Product</h2>
+				<span class="product-price">$49.00</span>
+			</section>
+
+			<!-- Text Paragraph -->
+			<section>
+				<p class="margin-reset">Maecenas consequat mauris nec semper tristique. Etiam fermentum augue ac vulputate pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque <a href="#">ThemeForest</a> arcu sed mollis. Nulla egestas nulla elit, eu condimentum diam fringilla blandit.</p>
+
+				<!-- Share Buttons -->	
+				<div class="share-buttons">
+					<ul>
+						<li><a href="#">Share</a></li>
+						<li class="share-facebook"><a href="#">Facebook</a></li>
+						<li class="share-twitter"><a href="#">Twitter</a></li>
+						<li class="share-gplus"><a href="#">Google Plus</a></li>
+						<li class="share-pinit"><a href="#">Pin It</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</section>
+		</div>
+	</div>
+</script>
+
+<!-- JavaScript -->
+<script src="vendor.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
