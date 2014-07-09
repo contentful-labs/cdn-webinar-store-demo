@@ -76,8 +76,8 @@
         href:          '#/product/' + product.sys.id,
         name:          product.fields.name,
         price:         product.fields.price,
-        mainImageURL:  assetUrl(mainImage),
-        hoverImageURL: assetUrl(hoverImage)
+        mainImageURL:  assetUrl(mainImage, { fit: 'pad', w: 420, h: 535 }),
+        hoverImageURL: assetUrl(hoverImage, { fit: 'pad', w: 420, h: 535 })
       });
     }).join('');
   }
@@ -87,7 +87,15 @@
    */
   function assetUrl (asset, extraParams) {
     try {
-      return asset.fields.file.url;
+      var url = asset.fields.file.url;
+      if (extraParams) {
+        var queryString = '';
+        for (var key in extraParams) {
+          queryString += '&' + key + '=' + extraParams[key];
+        }
+        url += '?' + queryString.substr(1);
+      }
+      return url;
     } catch (e) {
       console.error('Asset had no file URL:', asset);
       return 'images/show_item_01.jpg';
