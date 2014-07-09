@@ -14,6 +14,16 @@
     showPage(hash);
   };
 
+  var client = contentful.createClient({
+    space: 'cxabrnrb7c0d',
+    accessToken: '403bf75367636a190d5eca3346a59f1a476651a3c65cd21ac80de0eea46024a3'
+  });
+
+  client.space().then(
+    function (space) { console.log(space); },
+    function (error) { console.error(error); }
+  );
+
   showPage(window.location.hash || '');
 
   /**
@@ -31,4 +41,4 @@
     window.dispatchEvent(new Event('page'));
   }
 
-})(window, window.jQuery);
+})(window, window.jQuery, window.contentful);
