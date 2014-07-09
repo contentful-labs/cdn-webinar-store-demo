@@ -34,12 +34,17 @@
     var path = hash.substr(2).split('/');
     var pagePromise;
     if (path[0] === 'product') {
-      pagePromise = Promise.cast(Templates.ProductPage({}));
+      pagePromise = renderProductPage(path[1]);
     } else {
       pagePromise = renderCategoryPage(path[1]);
     }
 
     pagePromise.then(function (html) {
+      if (html === false) {
+        window.location.hash = '#/category';
+        return;
+      }
+
       $('#page').html(html);
       window.dispatchEvent(new Event('page'));
     }).done();
@@ -80,6 +85,27 @@
         hoverImageURL: assetUrl(hoverImage, { fit: 'pad', w: 420, h: 535 })
       });
     }).join('');
+  }
+
+  /**
+   * Show a single product
+   */
+  function renderProductPage (productId) {
+    if (!productId) {
+      return false;
+    }
+
+    return client.entries({
+      content_type: ContentTypes.Product,
+      'sys.id': productId
+    }).then(function (products) {
+      var product = products[0];
+      if (!product) {
+        return false;
+      }
+      product.allImages = [product.fields.mainImage, product.fields.hoverImage].concat(product.fields.images).filter(Boolean);
+      return Templates.ProductPage(product);
+    });
   }
 
   /**

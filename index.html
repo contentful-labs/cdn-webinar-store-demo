@@ -241,9 +241,11 @@
 	<div class="eight columns" >
 		<div class="slider-padding">
 			<div id="product-slider-vertical" class="royalSlider rsDefault">
-			    <a href="images/product_item_04a-big.jpg" class="mfp-gallery" title="First Title"><img class="rsImg" src="images/product_item_04a.jpg" data-rsTmb="images/product_item_thumb_04a.png" alt="" /></a>
-			    <a href="images/product_item_04b-big.jpg" class="mfp-gallery" title="Second Title"><img class="rsImg" src="images/product_item_04b.jpg" data-rsTmb="images/product_item_thumb_04b.png" alt="" /></a>
-			    <a href="images/product_item_04c-big.jpg" class="mfp-gallery" title="Third Title"><img class="rsImg" src="images/product_item_04c.jpg" data-rsTmb="images/product_item_thumb_04c.png" alt="" /></a>
+        {{#each allImages}}
+        <a href="{{ fields.file.url }}" class="mfp-gallery" title="{{ fields.title }}">
+          <img class="rsImg" src="{{ fields.file.url }}?w=400" data-rsTmb="{{ fields.file.url }}?w=120" alt="" />
+        </a>
+        {{/each}}
 			 </div>
 			 <div class="clearfix"></div>
 		</div>
@@ -255,13 +257,13 @@
 			
 			<!-- Headline -->
 			<section class="title">
-				<h2>Single Product</h2>
-				<span class="product-price">$49.00</span>
+        <h2>{{ fields.name }}</h2>
+        <span class="product-price">${{ fields.price }}</span>
 			</section>
 
 			<!-- Text Paragraph -->
 			<section>
-				<p class="margin-reset">Maecenas consequat mauris nec semper tristique. Etiam fermentum augue ac vulputate pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque <a href="#">ThemeForest</a> arcu sed mollis. Nulla egestas nulla elit, eu condimentum diam fringilla blandit.</p>
+        <p class="margin-reset">{{ fields.description }}</p>
 
 				<!-- Share Buttons -->	
 				<div class="share-buttons">
