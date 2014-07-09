@@ -165,6 +165,28 @@
   <li><a href="#/category/{{sys.id}}">{{fields.title}}</a></li>
 </script>
 
+<script id="ProductTile" type="text/x-handlebars-template">
+  <div class="four shop columns">
+    <figure class="product">
+      <div class="mediaholder">
+        <a href="{{href}}">
+          <img alt="" src="{{mainImageURL}}"/>
+          <div class="cover">
+            <img alt="" src="{{hoverImageURL}}"/>
+          </div>
+        </a>
+      </div>
+
+      <a href="{{href}}">
+        <section>
+          <h5>{{ fields.name }}</h5>
+          <span class="product-price">${{price}}</span>
+        </section>
+      </a>
+    </figure>
+  </div>
+</script>
+
 <script id="CategoryPage" type="text/x-handlebars-template">
 
   <!-- Sidebar -->
@@ -197,7 +219,6 @@
 
 	</div>
 
-
   <!-- Content -->
 	<div class="twelve columns margin-bottom-30">
 		<!-- Search -->
@@ -211,150 +232,8 @@
 
 	<!-- Products -->
 	<div class="twelve columns products">
-
-		<!-- Product #1 -->
-		<div class="four shop columns">
-			<figure class="product">
-				<div class="mediaholder">
-					<a href="#/product">
-						<img alt="" src="images/shop_item_01.jpg"/>
-						<div class="cover">
-							<img alt="" src="images/shop_item_01_hover.jpg"/>
-						</div>
-					</a>
-					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-
-				<a href="#/product">
-					<section>
-						<span class="product-category">Skirts</span>
-						<h5>Brown Mini Skirt</h5>
-						<span class="product-price">$79.00</span>
-					</section>
-				</a>
-			</figure>
-		</div>
-
-
-		<!-- Product #2 -->
-		<div class="four shop columns">
-			<figure class="product">
-				<div class="mediaholder">
-					<a href="#/product">
-						<img alt="" src="images/shop_item_01.jpg"/>
-						<div class="cover">
-							<img alt="" src="images/shop_item_01_hover.jpg"/>
-						</div>
-					</a>
-					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-
-				<a href="#/product">
-					<section>
-						<span class="product-category">Shoes</span>
-						<h5>Glory High Shoes </h5>
-						<span class="product-price">$99.00</span>
-					</section>
-				</a>
-			</figure>
-		</div>
-
-
-		<!-- Product #3 -->
-		<div class="four shop columns">
-			<figure class="product">
-				<div class="product-discount">SALE</div>
-				<div class="mediaholder">
-					<a href="#/product">
-						<img alt="" src="images/shop_item_01.jpg"/>
-						<div class="cover">
-							<img alt="" src="images/shop_item_01_hover.jpg"/>
-						</div>
-					</a>
-					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-
-				<a href="#/product">
-					<section>
-						<span class="product-category">Suits</span>
-						<h5>Wool Two-Piece Suit</h5>
-						<span class="product-price-discount">$499.00<i>$399.00</i></span>
-					</section>
-				</a>
-			</figure>
-		</div>
-
-
-		<!-- Product #4 -->
-		<div class="four shop columns">
-			<figure class="product">
-				<div class="mediaholder">
-					<a href="#/product">
-						<img alt="" src="images/shop_item_01.jpg"/>
-						<div class="cover">
-							<img alt="" src="images/shop_item_01_hover.jpg"/>
-						</div>
-					</a>
-					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-
-				<a href="#/product">
-					<section>
-						<span class="product-category">Shirts</span>
-						<h5>Vintage Stripe Jumper</h5>
-						<span class="product-price">$49.00</span>
-					</section>
-				</a>
-			</figure>
-		</div>
-
-
-		<!-- Product #5 -->
-		<div class="four shop columns">
-			<figure class="product">
-				<div class="mediaholder">
-					<a href="#/product">
-						<img alt="" src="images/shop_item_01.jpg"/>
-						<div class="cover">
-							<img alt="" src="images/shop_item_01_hover.jpg"/>
-						</div>
-					</a>
-					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-
-				<a href="#/product">
-					<section>
-						<span class="product-category">Accessories</span>
-						<h5>Vintage Sunglasses</h5>
-						<span class="product-price">$29.00</span>
-					</section>
-				</a>
-			</figure>
-		</div>
-
-
-		<!-- Product #6 -->
-		<div class="four shop columns">
-			<figure class="product">
-				<div class="mediaholder">
-					<a href="#/product">
-						<img alt="" src="images/shop_item_01.jpg"/>
-						<div class="cover">
-							<img alt="" src="images/shop_item_01_hover.jpg"/>
-						</div>
-					</a>
-					<a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-
-				<a href="#/product">
-					<section>
-						<span class="product-category">Shirts</span>
-						<h5>Solid Blue Polo Shirt</h5>
-						<span class="product-price">$29.00</span>
-					</section>
-				</a>
-			</figure>
-		</div>
+    {{{ productTiles }}}
+  </div>
 </script>
 
 <script id="ProductPage" type="text/x-handlebars-template">

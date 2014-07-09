@@ -56,9 +56,41 @@
         return Templates.CategoryMenuItem(category);
       }).join('');
 
-      return Templates.CategoryPage({
-        categoryMenuItems: menuItems
+      return client.entries({
+        content_type: ContentTypes.Product,
+        'fields.categories.sys.id': categoryId
+      }).then(createProductTiles).then(function (productTiles) {
+        return Templates.CategoryPage({
+          categoryMenuItems: menuItems,
+          productTiles: productTiles
+        });
       });
     });
+  }
+
+  function createProductTiles (products) {
+    return products.map(function (product) {
+      var mainImage  = product.fields.mainImage;
+      var hoverImage = product.fields.hoverImage || product.fields.mainImage;
+      return Templates.ProductTile({
+        href:          '#/product/' + product.sys.id,
+        name:          product.fields.name,
+        price:         product.fields.price,
+        mainImageURL:  assetUrl(mainImage),
+        hoverImageURL: assetUrl(hoverImage)
+      });
+    }).join('');
+  }
+
+  /**
+   * Return the URL to a particular asset, optionally with query parameters appended.
+   */
+  function assetUrl (asset, extraParams) {
+    try {
+      return asset.fields.file.url;
+    } catch (e) {
+      console.error('Asset had no file URL:', asset);
+      return 'images/show_item_01.jpg';
+    }
   }
 })(window, window.jQuery, window.contentful);
