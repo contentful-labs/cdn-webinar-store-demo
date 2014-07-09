@@ -161,6 +161,10 @@
 </div>
 
 <!-- Templates -->
+<script id="CategoryMenuItem" type="text/x-handlebars-template">
+  <li><a href="#/category/{{sys.id}}">{{fields.title}}</a></li>
+</script>
+
 <script id="CategoryPage" type="text/x-handlebars-template">
 
   <!-- Sidebar -->
@@ -171,12 +175,7 @@
 			<h3 class="headline">Categories</h3><span class="line"></span><div class="clearfix"></div>
 
 			<ul id="categories">
-				<li><a href="#">Accessories <span>(8)</span></a></li>
-				<li><a href="#">Jewelry <span>(12)</span></a></li>
-				<li><a href="#">Gifts <span>(3)</span></a></li>
-				<li><a href="#">Men's Wear <span>(14)</span></a></li>
-				<li><a href="#">Women's Wear <span>(20)</span></a></li>
-				<li><a href="#">Miscellaneous <span>(3)</span></a></li>
+        {{{ categoryMenuItems }}}
 			</ul>
 			<div class="clearfix"></div>
 

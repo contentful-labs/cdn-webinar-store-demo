@@ -19,10 +19,11 @@
     accessToken: '403bf75367636a190d5eca3346a59f1a476651a3c65cd21ac80de0eea46024a3'
   });
 
-  client.space().then(
-    function (space) { console.log(space); },
-    function (error) { console.error(error); }
-  );
+  // Friendlier names for Content Type id's
+  var ContentTypes = {
+    Category: '3O7B8JdPZecUCm8AumKkUE',
+    Product:  'DgvD5CjmoKESsMscCyCc6',
+  };
 
   showPage(window.location.hash || '');
 
@@ -31,14 +32,33 @@
    */
   function showPage (hash) {
     var path = hash.substr(2).split('/');
-    var page;
+    var pagePromise;
     if (path[0] === 'product') {
-      page = Templates.ProductPage({});
+      pagePromise = Promise.cast(Templates.ProductPage({}));
     } else {
-      page = Templates.CategoryPage({});
+      pagePromise = renderCategoryPage(path[1]);
     }
-    $('#page').html(page);
-    window.dispatchEvent(new Event('page'));
+
+    pagePromise.then(function (html) {
+      $('#page').html(html);
+      window.dispatchEvent(new Event('page'));
+    }).done();
   }
 
+  /**
+   * Request all the Category entries from the delivery API. then replace the
+   * category menu content with a list items for each one.
+   */
+  function renderCategoryPage (categoryId) {
+    return client.entries({ content_type: ContentTypes.Category }).then(function (categories) {
+      categoryId = categoryId || categories[0].sys.id;
+      var menuItems = categories.map(function (category) {
+        return Templates.CategoryMenuItem(category);
+      }).join('');
+
+      return Templates.CategoryPage({
+        categoryMenuItems: menuItems
+      });
+    });
+  }
 })(window, window.jQuery, window.contentful);
