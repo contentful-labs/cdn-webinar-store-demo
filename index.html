@@ -223,16 +223,18 @@
 	<div class="twelve columns margin-bottom-30">
 		<!-- Search -->
 		<nav class="top-search">
-			<form action="#" method="get">
-				<button><i class="fa fa-search"></i></button>
-				<input class="search-field" type="text" placeholder="Search" value=""/>
-			</form>
+      <button id="search-button"><i class="fa fa-search"></i></button>
+      <input id="search-terms" class="search-field" type="text" placeholder="Search" value="{{searchTerms}}"/>
 		</nav>
 	</div>
 
 	<!-- Products -->
 	<div class="twelve columns products">
-    {{{ productTiles }}}
+    {{#if productTiles}}
+      {{{ productTiles }}}
+    {{else}}
+      <span>No matching products found</span>
+    {{/if}}
   </div>
 </script>
 

@@ -27,6 +27,11 @@
 
   showPage(window.location.hash || '');
 
+  $('body').on('keydown', '#search-terms', debounce(500, function (e) {
+    var terms = $('#search-terms');
+    window.location.hash = '#/search/' + terms.val();
+  }));
+
   /**
    * Our "router". Right now this just chooses the template to render
    */
@@ -36,7 +41,8 @@
     if (path[0] === 'product') {
       pagePromise = renderProductPage(path[1]);
     } else {
-      pagePromise = renderCategoryPage(path[1]);
+      var productQuery = makeProductQuery(path[0], path[1]);
+      pagePromise = renderListingPage(productQuery);
     }
 
     pagePromise.then(function (html) {
@@ -54,23 +60,31 @@
    * Request all the Category entries from the delivery API. then replace the
    * category menu content with a list items for each one.
    */
-  function renderCategoryPage (categoryId) {
+  function renderListingPage (productQuery) {
     return client.entries({ content_type: ContentTypes.Category }).then(function (categories) {
-      categoryId = categoryId || categories[0].sys.id;
       var menuItems = categories.map(function (category) {
         return Templates.CategoryMenuItem(category);
       }).join('');
 
-      return client.entries({
-        content_type: ContentTypes.Product,
-        'fields.categories.sys.id': categoryId
-      }).then(createProductTiles).then(function (productTiles) {
+      return client.entries(productQuery).then(createProductTiles).then(function (productTiles) {
         return Templates.CategoryPage({
           categoryMenuItems: menuItems,
-          productTiles: productTiles
+          productTiles: productTiles,
+          searchTerms: productQuery.query
         });
       });
     });
+  }
+
+  function makeProductQuery (type, parameter) {
+    var query = { content_type: ContentTypes.Product };
+    if (type === 'search' && parameter) {
+      query.query = parameter;
+    }
+    else if (type === 'category') {
+      query['fields.categories.sys.id'] = parameter;
+    }
+    return query;
   }
 
   function createProductTiles (products) {
@@ -127,4 +141,19 @@
       return 'images/show_item_01.jpg';
     }
   }
+
+  function debounce (delay, fn) {
+    var timeout = false;
+
+    return function (e) {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+      timeout = setTimeout(function () {
+        timeout = false;
+        fn(e);
+      }, delay);
+    };
+  }
+
 })(window, window.jQuery, window.contentful);
