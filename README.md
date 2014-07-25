@@ -21,4 +21,4 @@ At this point you can open `index.html` and see placeholder content. The [webina
 
 ## Note: use a web server to view files
 
-The demo uses protocol-independent image links (e.g. `<img src="//images.contentful.com/..." />` so the images won't load correctly when viewing `file://path/to/cdn-webinar-store-demo/index.html`. In the webinar I used [ecstatic](https://www.npmjs.org/package/ecstatic) but you could use anything else you're comfortable with or already have configured, such as Apache or Nginx.
+The demo uses protocol-independent image links (e.g. `<img src="//images.contentful.com/..." />` so the images won't load correctly when viewing `file://path/to/cdn-webinar-store-demo/index.html`. In the webinar I used [ecstatic](https://www.npmjs.org/package/ecstatic) to serve the files but you could use anything else you're comfortable with or already have configured, such as Apache or Nginx.
